@@ -2,12 +2,12 @@
 
 DISCLAIMER: THIS PROJECT IS UNDER DEVELOPMENT
 
-MediatREndpoints
+MediatR.Endpoints
 =======
 
 Combines ASP.NET Core Minimal APIs with MediatR for simple, painless mapping of requests to REST API endpoints.
 
-### Installing MediatREndpoints
+### Installing MediatR.Endpoints
 
 You should install [MediatR with NuGet]():
 
