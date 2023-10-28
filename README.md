@@ -158,7 +158,7 @@ To customize a single endpoint, set the `Handler`:
 In service configuration:
 ```csharp
 cfg.MapPut<MyPutRequest>("my/put/{id}", handler:
-    async (SomeDependency dependency, IMediator mediator, [FromRoute]int id, [FromBody]string name) =>
+    async (SomeDependency dependency, IMediator mediator, int id, [FromBody]string name) =>
     {
         var request = new MyGetRequest
         {
@@ -179,7 +179,7 @@ public class MyPutRequestConfiguration : IEndpointConfiguration<MyPutRequest>
     {
         e.HttpMethod = Method.Put;
         e.Route = "my/put/{id},"
-        e.Handler = async (SomeDependency dependency, IMediator mediator, [FromRoute]int id, [FromBody]string name) =>
+        e.Handler = async (SomeDependency dependency, IMediator mediator, int id, [FromBody]string name) =>
         {
             var request = new MyGetRequest
             {
