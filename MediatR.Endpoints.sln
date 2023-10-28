@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatR.Endpoints", "Mediat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.Endpoints.App", "MediatR.Endpoints.App\MediatR.Endpoints.App.csproj", "{AF2D6F15-4086-48E4-8372-C5ADFB546443}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.Endpoints.App.Tests", "MediatR.Endpoints.App.Tests\MediatR.Endpoints.App.Tests.csproj", "{1E8CD432-B500-461B-8341-F09A3CFB68F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AF2D6F15-4086-48E4-8372-C5ADFB546443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF2D6F15-4086-48E4-8372-C5ADFB546443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF2D6F15-4086-48E4-8372-C5ADFB546443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E8CD432-B500-461B-8341-F09A3CFB68F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E8CD432-B500-461B-8341-F09A3CFB68F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E8CD432-B500-461B-8341-F09A3CFB68F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E8CD432-B500-461B-8341-F09A3CFB68F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
