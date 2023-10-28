@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.Endpoints", "MediatR.Endpoints\MediatR.Endpoints.csproj", "{B1A11DB0-2961-4511-9E80-8F9791226E55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.Endpoints.Tests", "MediatR.Endpoints.Tests\MediatR.Endpoints.Tests.csproj", "{413CAC85-6CBF-42B1-A01A-3E4E6971B294}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B1A11DB0-2961-4511-9E80-8F9791226E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1A11DB0-2961-4511-9E80-8F9791226E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1A11DB0-2961-4511-9E80-8F9791226E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{413CAC85-6CBF-42B1-A01A-3E4E6971B294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{413CAC85-6CBF-42B1-A01A-3E4E6971B294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{413CAC85-6CBF-42B1-A01A-3E4E6971B294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{413CAC85-6CBF-42B1-A01A-3E4E6971B294}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,9 +4,9 @@ using System.Reflection;
 
 namespace MediatR.Endpoints;
 
-public static class EndpointMapper
+internal static class EndpointMapper
 {
-    internal static RouteHandlerBuilder MapEndpoint(RouteGroupBuilder group, EndpointRegistration registration, IEndpointHandlerDelegateFactory handlerFactory)
+    public static RouteHandlerBuilder MapEndpoint(RouteGroupBuilder group, EndpointRegistration registration, IEndpointHandlerDelegateFactory handlerFactory)
     {
         var bindingAttributes = BindingFlags.NonPublic | BindingFlags.Static;
         var methodArgTypes = new Type[] { typeof(IEndpointRouteBuilder), typeof(EndpointRegistration), typeof(IEndpointHandlerDelegateFactory) };
