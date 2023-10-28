@@ -1,14 +1,12 @@
 
-
-DISCLAIMER: THIS PROJECT IS UNDER DEVELOPMENT
-
 MediatR.Endpoints
 =======
 
 Combines ASP.NET Core Minimal APIs with MediatR for simple, painless mapping of requests to REST API endpoints.
 
 ### Installing MediatR.Endpoints
-
+<i>Coming soon</i>
+<!--
 You should install [MediatR with NuGet]():
 
     Install-Package MediatREndpoints
@@ -18,7 +16,7 @@ Or via the .NET Core command line interface:
     dotnet add package MediatREndpoints
 
 All required dependencies will be installed, including MediatR.
-
+-->
 Quick Start
 -
 Call `AddMediatREndpoints` during service configuration, after calling `AddMediatR`. Assemblies registered in `AddMediatR` will be scanned for endpoints.
@@ -223,5 +221,3 @@ cfg.DefaultRouteFormatter = (t) => $"custom/default/route/{t.Name}"
 //  Type: Api.Features.Stuff.MyRequest
 //  Route: custom/default/route/MyRequest
 ```
-Acknowledgements
--
