@@ -4,10 +4,33 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <Title>MediatR.Endpoints</Title>
+    <Authors>Mark Miller</Authors>
+    <Company>$()</Company>
+    <Description>Combines ASP.NET Core Minimal APIs with MediatR for simple, painless mapping of requests to REST API endpoints</Description>
+    <PackageProjectUrl>https://github.com/markmillercc/MediatR.Endpoints</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/markmillercc/MediatR.Endpoints</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>MediatR; Endpoints; Minimal API; ASP.NET CORE;</PackageTags>
+    <PackageOutputPath>bin\Release\</PackageOutputPath>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
   
   <ItemGroup>

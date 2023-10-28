@@ -2,21 +2,22 @@
 MediatR.Endpoints
 =======
 
+[![NuGet](https://img.shields.io/nuget/vpre/mediatr.endpoints.svg)](https://www.nuget.org/packages/mediatr.endpoints)
+
 Combines ASP.NET Core Minimal APIs with MediatR for simple, painless mapping of requests to REST API endpoints.
 
 ### Installing MediatR.Endpoints
-<i>Coming soon</i>
-<!--
-You should install [MediatR with NuGet]():
 
-    Install-Package MediatREndpoints
+You should install [MediatR with NuGet](https://www.nuget.org/packages/MediatR.Endpoints/):
+
+    Install-Package MediatR.Endpoints
     
 Or via the .NET Core command line interface:
 
-    dotnet add package MediatREndpoints
+    dotnet add package MediatR.Endpoints
 
 All required dependencies will be installed, including MediatR.
--->
+
 Quick Start
 -
 Call `AddMediatREndpoints` during service configuration, after calling `AddMediatR`. Assemblies registered in `AddMediatR` will be scanned for endpoints.
