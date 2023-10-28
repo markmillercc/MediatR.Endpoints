@@ -14,7 +14,9 @@ public static class ServiceCollectionExtensions
             throw new InvalidOperationException("Missing IMediator service. Did you forget to call AddMediatR?");
 
         var assemblies = services
-            .Where(a => a.ServiceType.IsGenericType && a.ServiceType.GetGenericTypeDefinition() == typeof(IRequestHandler<,>))
+            .Where(a => a.ServiceType.IsGenericType)
+            .Where(a => a.ServiceType.GetGenericTypeDefinition() == typeof(IRequestHandler<>)
+                || a.ServiceType.GetGenericTypeDefinition() == typeof(IRequestHandler<,>))
             .Select(a => a.ImplementationType.Assembly)
             .Distinct()
             .ToArray();
