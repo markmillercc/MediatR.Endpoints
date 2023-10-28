@@ -1,15 +1,15 @@
 
 
-DISCLAIMER: THIS PROJECT IS UNDER DEVELOPMENT AND SOME OF THE LINKS BELOW MAY NOT BE ACTIVE YET
+DISCLAIMER: THIS PROJECT IS UNDER DEVELOPMENT
 
 MediatREndpoints
 =======
 
-Easy endpoint generation from MediatR requests.
+Combines ASP.NET Core Minimal APIs with MediatR for simple, painless mapping of requests to REST API endpoints.
 
 ### Installing MediatREndpoints
 
-You should install [MediatR with NuGet](https://www.nuget.org/packages/MediatR):
+You should install [MediatR with NuGet]():
 
     Install-Package MediatREndpoints
     
@@ -21,24 +21,14 @@ All required dependencies will be installed, including MediatR.
 
 Quick Start
 -
-Call `AddMediatREndpoints` during service configuration, specifying the assemblies where your `IRequest` objects reside. This will also register `MediatR` using the same assemblies.
+Call `AddMediatREndpoints` during service configuration, after calling `AddMediatR`. Assemblies registered in `AddMediatR` will be scanned for endpoints.
 ```csharp
-builder.Services.AddMediatREndpoints(cfg => 
-{
-    cfg.RegisterFromAssemblies(Assembly.GetExecutingAssembly()); 
-
-	// Additional MediatR configuration and behaviors can be registered here as well
-    cfg.MediatR.AddBehavior<PingPongBehavior>();
-	cfg.MediatR.AddStreamBehavior<PingPongStreamBehavior>();
-	cfg.MediatR.AddRequestPreProcessor<PingPreProcessor>();
-	cfg.MediatR.AddRequestPostProcessor<PingPongPostProcessor>();
-	cfg.MediatR.AddOpenBehavior(typeof(GenericBehavior<,>));
-};
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+builder.Services.AddMediatREndpoints();
 ```
 Then call `MapMediatREndpoints` to find and build your endpoints:
 ```csharp
 var app = builder.Build();
-
 app.MapMediatREndpoints();
 ```
 That's it. Any endpoints configured using one or more of the methods below will be automatically created to spec.
@@ -79,9 +69,9 @@ or to a class the request object is nested under.
 public class MyGetRequest
 {
     public class Query : IRequest<string>
-	{
-	    public int Id { get; set; }
-	}
+    {
+        public int Id { get; set; }
+    }
 }
 ```
 `Route` and `Group` are optional.
@@ -109,9 +99,7 @@ public class MyGetRequestConfiguration : IEndpointConfiguration<MyGetRequest>
 Use the methods on `MediatREndpointsConfiguration` during service configuration. Methods exist for `GET`, `POST`, `PATCH`, `PUT`, and `DELETE` endpoints.  All parameters are optional.
 ```csharp
 builder.Services.AddMediatREndpoints(cfg => 
-{
-    cfg.RegisterFromAssemblies(Assembly.GetExecutingAssembly());        
-
+{         
     cfg.MapGet<MyGetRequest>("my/route/{id}", "mygroup");
     cfg.MapPost<MyPostRequest>();
 }
@@ -149,8 +137,8 @@ cfg.AddRouteGroupBuilder("myGroup", a => a
     .RequireAuthorization()
     .AddEndpointFilter<EndpointFilter>());
 
-// Applies to ALL endpoints
-cfg.AddGlobalRouteGroupBuilder(a => a
+// Omit the Group parameter to applies to ALL endpoints
+cfg.AddRouteGroupBuilder(a => a
     .RequireAuthorization()
     .AddEndpointFilter<EndpointFilter>());
 ```
@@ -214,10 +202,7 @@ public class MyHandlerFactory : DefaultEndpointHandlerDelegateFactory
 {
     public override Delegate GetHandler<TRequest, TResponse>()
     {
-        return async (SomeDependency dependency, IMediator mediator, IRequest request) =>
-        {
-            // Custom handling...
-        });
+        // return custom delegate action
     }
 }
 ```
