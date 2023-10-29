@@ -6,6 +6,13 @@ namespace MediatR.Endpoints;
 
 public static class ServiceCollectionExtensions
 {
+    /// <summary>
+    /// Uses assemblies found during MediatR registration to scan for and register endpoint configurations
+    /// </summary>
+    /// <param name="services">Your service collection</param>
+    /// <param name="configAction">Action used to configure endpoints and endpoint options</param>
+    /// <returns>Your service collection</returns>
+    /// <exception cref="InvalidOperationException">Throws if <see cref="IMediator"/> has not been registered</exception>
     public static IServiceCollection AddMediatREndoints(this IServiceCollection services, Action<MediatREndpointsConfiguration> configAction)
     {
         var config = new MediatREndpointsConfiguration();
@@ -27,6 +34,11 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
+    /// <summary>
+    /// Finds endpoints configured via <see cref="EndpointAttribute"/> or <see cref="IEndpointConfiguration{TRequest}"/>, or during service configuration, and maps as defined to your application 
+    /// </summary>
+    /// <param name="app">Your web application</param>
+    /// <exception cref="InvalidOperationException">Throws if <see cref="AddMediatREndoints(IServiceCollection, Action{MediatREndpointsConfiguration})"/> has not been called yet</exception>
     public static void MapMediatREndpoints(this WebApplication app)
     {
         if (Registrar.Registrations == null)
