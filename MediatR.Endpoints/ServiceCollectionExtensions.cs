@@ -13,7 +13,7 @@ public static class ServiceCollectionExtensions
     /// <param name="configAction">Action used to configure endpoints and endpoint options</param>
     /// <returns>Your service collection</returns>
     /// <exception cref="InvalidOperationException">Throws if <see cref="IMediator"/> has not been registered</exception>
-    public static IServiceCollection AddMediatREndoints(this IServiceCollection services, Action<MediatREndpointsConfiguration> configAction)
+    public static IServiceCollection AddMediatREndoints(this IServiceCollection services, Action<MediatREndpointsConfiguration> configAction = null)
     {
         var config = new MediatREndpointsConfiguration();
 
@@ -28,7 +28,7 @@ public static class ServiceCollectionExtensions
             .Distinct()
             .ToArray();
 
-        configAction.Invoke(config);
+        configAction?.Invoke(config);
         config.RegisterFromAssemblies(assemblies);
         Registrar.Initialize(config);
         return services;

@@ -15,7 +15,7 @@
     <PackageTags>MediatR; Endpoints; Minimal API; ASP.NET CORE;</PackageTags>
     <PackageOutputPath>bin\Release\</PackageOutputPath>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
