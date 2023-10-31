@@ -54,7 +54,7 @@ public class BasicTests : IClassFixture<WebApplicationFactory<Program>>
         var response = await GetResponse(httpMethod, requestType, expectedRoute, expectedGroup);
 
         response.IsSuccessStatusCode.ShouldBeTrue($"{httpMethod}-> {expectedGroup}/{expectedRoute}: {response}");
-        (await response.Content.ReadAsStringAsync()).ShouldBe($"\"{requestType.FullName} handled\"");
+        (await response.Content.ReadAsStringAsync()).ShouldBe($"{requestType.FullName} handled");
 
         response.Headers.TryGetValues("EndpointFilters", out IEnumerable<string> filtersHit).ShouldBeTrue();
         filtersHit.Count().ShouldBe(expectedFilters.Length);

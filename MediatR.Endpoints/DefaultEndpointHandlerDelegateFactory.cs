@@ -32,104 +32,44 @@ public class DefaultEndpointHandlerDelegateFactory : IEndpointHandlerDelegateFac
             _ => throw new NotSupportedException(),
         };
 
-    public virtual Delegate GetHandler<TRequest>()
-        where TRequest : IRequest
-    {
-        return async (IMediator mediator, [AsParameters] TRequest request) =>
-        {
+    public virtual Delegate GetHandler<TRequest>() where TRequest : IRequest => 
+        async (IMediator mediator, [AsParameters] TRequest request) => 
             await mediator.Send(request);
-            return Results.Ok();
-        };
-    }
-
-    public virtual Delegate GetHandler<TRequest, TResponse>()
-        where TRequest : IRequest<TResponse>
-    {
-        return async (IMediator mediator, [AsParameters] TRequest request) =>
-        {
-            var response = await mediator.Send(request);
-            return Results.Ok(response);
-        };
-    }
-
-    public virtual Delegate DeleteHandler<TRequest>()
-        where TRequest : IRequest
-    {
-        return async (IMediator mediator, [AsParameters] TRequest request) =>
-        {
+        
+    public virtual Delegate GetHandler<TRequest, TResponse>() where TRequest : IRequest<TResponse> => 
+        async (IMediator mediator, [AsParameters] TRequest request) => 
             await mediator.Send(request);
-            return Results.Ok();
-        };
-    }    
+    
+    public virtual Delegate DeleteHandler<TRequest>() where TRequest : IRequest => 
+        async (IMediator mediator, [AsParameters] TRequest request) => 
+            await mediator.Send(request);  
 
-    public virtual Delegate DeleteHandler<TRequest, TResponse>()
-        where TRequest : IRequest<TResponse>
-    {
-        return async (IMediator mediator, [AsParameters] TRequest request) =>
-        {
-            var response = await mediator.Send(request);
-            return Results.Ok(response);
-        };
-    }
-
-    public virtual Delegate PatchHandler<TRequest>()
-        where TRequest : IRequest
-    {
-        return async (IMediator mediator, [FromBody] TRequest request) =>
-        {
+    public virtual Delegate DeleteHandler<TRequest, TResponse>() where TRequest : IRequest<TResponse> => 
+        async (IMediator mediator, [AsParameters] TRequest request) =>
             await mediator.Send(request);
-            return Results.Ok();
-        };
-    }
 
-    public virtual Delegate PatchHandler<TRequest, TResponse>()
-        where TRequest : IRequest<TResponse>
-    {
-        return async (IMediator mediator, [FromBody] TRequest request) =>
-        {
-            var response = await mediator.Send(request);
-            return Results.Ok(response);
-        };
-    }
-
-    public virtual Delegate PostHandler<TRequest>()
-        where TRequest : IRequest
-    {
-        return async (IMediator mediator, [FromBody] TRequest request) =>
-        {
+    public virtual Delegate PatchHandler<TRequest>() where TRequest : IRequest =>
+        async (IMediator mediator, [FromBody] TRequest request) =>
             await mediator.Send(request);
-            return Results.Ok();
-        };
-    }
 
-    public virtual Delegate PostHandler<TRequest, TResponse>()
-        where TRequest : IRequest<TResponse>
-    {
-        return async (IMediator mediator, [FromBody] TRequest request) =>
-        {
-            var response = await mediator.Send(request);
-            return Results.Ok(response);
-        };
-    }
-
-    public virtual Delegate PutHandler<TRequest>()
-        where TRequest : IRequest
-    {
-        return async (IMediator mediator, [FromBody] TRequest request) =>
-        {
+    public virtual Delegate PatchHandler<TRequest, TResponse>() where TRequest : IRequest<TResponse> => 
+        async (IMediator mediator, [FromBody] TRequest request) => 
             await mediator.Send(request);
-            return Results.Ok();
-        };
-    }        
 
-    public virtual Delegate PutHandler<TRequest, TResponse>()
-        where TRequest : IRequest<TResponse>
-    {
-        return async (IMediator mediator, [FromBody] TRequest request) =>
-        {
-            var response = await mediator.Send(request);
-            return Results.Ok(response);
-        };
-    }
+    public virtual Delegate PostHandler<TRequest>() where TRequest : IRequest => 
+        async (IMediator mediator, [FromBody] TRequest request) => 
+            await mediator.Send(request);
+
+    public virtual Delegate PostHandler<TRequest, TResponse>() where TRequest : IRequest<TResponse> => 
+        async (IMediator mediator, [FromBody] TRequest request) => 
+            await mediator.Send(request);
+
+    public virtual Delegate PutHandler<TRequest>() where TRequest : IRequest => 
+        async (IMediator mediator, [FromBody] TRequest request) => 
+            await mediator.Send(request);        
+
+    public virtual Delegate PutHandler<TRequest, TResponse>() where TRequest : IRequest<TResponse> => 
+        async (IMediator mediator, [FromBody] TRequest request) => 
+            await mediator.Send(request);
 }
 

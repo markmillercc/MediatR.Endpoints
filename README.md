@@ -146,8 +146,7 @@ The default actions for endpoints are kept thin and simple, like this:
 ```csharp
 async (IMediator mediator, [FromBody] TRequest request) =>
 {
-    var response = await mediator.Send(request);
-    return Results.Ok(response);
+    return await mediator.Send(request);
 };
 ```
 There are minor variations depending on request method and type. See `DefaultEndpointHandlerDelegateFactory` for all actions.
